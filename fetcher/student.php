@@ -3,10 +3,13 @@
 <?php
     require_once '../includes/head.php';
 ?>
+
 <body style="height:100%;">
 
 
     <div class="jumbotron">
+
+
             <h5>LSTVENTURES PROGRAMMING TRAINING</h5>
     </div>
     <div class="container-fluid" style="margin-top:-32px;">

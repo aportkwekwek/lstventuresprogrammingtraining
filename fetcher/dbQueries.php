@@ -390,10 +390,12 @@
         
         $pdf = new Cezpdf('Letter');
         $pdf->saveState();
-        $pdf->selectFont('../assets/fonts/Helvetica.afm');
 
+        $pdf->selectFont('../assets/fonts/Helvetica.afm');
+      
         $xfsize = 8;
         $xtop = 750;
+        $xtop -=20;
         
         $dateToday = date('F d, Y');
 
@@ -546,12 +548,6 @@
 
     }
 
-    function activeInactive($activeInactives){
-
-      
-
-    }
-
     function printSummarized($ffrom, $fto, $dfrom, $dto, $activeInactive){
         
         $connect = new Connection;
@@ -562,9 +558,14 @@
         $pdf->saveState();
 
         $xfsize = 8;
-        $xtop = 750;
+        $xtop = 730;
         
+        $pdf->selectFont('../assets/ezpdfclass/fonts/Helvetica.afm');
+     
+
         $dateToday = date('F d, Y');
+
+        
 
         $pdf->ezPlaceData(25,$xtop , "Summarized Fetcher File Report",20 ,'left');
         $xtop -=20;
@@ -599,6 +600,7 @@
 
         $pdf->selectFont('../assets/ezpdfclass/fonts/Helvetica-Bold.afm');
 
+        
         $pdf->ezPlaceData($xleft[0], $xtop,"Fetcher Code",$xfsize, 'left');
         $pdf->ezPlaceData($xleft[1], $xtop,"Fetcher Name",$xfsize,'left');
         $pdf->ezPlaceData($xleft[2], $xtop,"Registered Date",$xfsize,'left');

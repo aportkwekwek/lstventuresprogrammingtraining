@@ -1465,7 +1465,6 @@ function ezImage($image,$pad = 5,$width = 0,$resize = 'full',$just = 'center',$b
 		}
 	}
 
-
 	//call appropriate function
 	if ($type == "jpeg"){
 		$this->addJpegFromFile($image,$this->ez['leftMargin'] + $pad + $offset, $this->y + $this->getFontHeight($this->ez['fontSize']) - $pad - $height,$width);

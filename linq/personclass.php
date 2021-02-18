@@ -228,14 +228,9 @@
             echo json_encode($response);
 
         }
-
-
-
-
+        
         $connect->closeConnection();
 
-
     }
-
 
 ?>

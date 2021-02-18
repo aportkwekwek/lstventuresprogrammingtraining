@@ -1509,11 +1509,14 @@ function selectFont($fontName,$encoding='',$set=1){
         // load the pfb file, and put that into an object too.
         // note that pdf supports only binary format type 1 font files, though there is a 
         // simple utility to convert them from pfa to pfb.
+
         $fp = fopen($fbfile,'rb');
         $tmp = get_magic_quotes_runtime();
-        set_magic_quotes_runtime(0);
+        // set_magic_quotes_runtime(0);
+        
         $data = fread($fp,filesize($fbfile));
-        set_magic_quotes_runtime($tmp);
+        ini_set('magic_quotes_runtime',$tmp);
+        // set_magic_quotes_runtime($tmp);
         fclose($fp);
 
         // create the font descriptor
