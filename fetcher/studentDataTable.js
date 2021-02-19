@@ -44,7 +44,7 @@ $(document).ready(function(){
 
                 $.ajax({
                     type:'post',
-                    url:'test.php',
+                    url:'studentDataTable.php',
                     dataType:'json',
                     data:{
                         xrecordid:xrecordid,
@@ -155,7 +155,7 @@ $(document).ready(function(){
 
               $.ajax({
                 type:'post',
-                url:'test.php',
+                url:'studentDataTable.php',
                 dataType:'json',
                 data:{
                     btnDeleteStudent:1,
@@ -189,7 +189,7 @@ $(document).ready(function(){
         $('#tblStudents tbody').empty();
 
         $.ajax({
-        url : 'test.php',
+        url : 'studentDataTable.php',
         type:'post',
         dataType:'json',
         data:{

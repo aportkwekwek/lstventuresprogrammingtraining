@@ -62,7 +62,7 @@
 
                        <br>
 
-                        <table class="table display" id="tblStudents"> 
+                        <table class="table hover" id="tblStudents" width="100%"> 
                             <thead>
                                 <tr>
                                     <th scope="col" style="width: 12%;">Record ID</th>
