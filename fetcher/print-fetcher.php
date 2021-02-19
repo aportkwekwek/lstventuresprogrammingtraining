@@ -41,13 +41,13 @@
                             <select class="form-control comboBoxFetcherCodeFrom" id="comboBoxFetcherCodeFrom">
                             <!-- <option value="0"> -- Select student code -- </option> -->
                             <?php
-                                require_once("../connection.php");
+                                require_once("../config.db.php");
 
-                                $connect = new Connection;
-                                $conn = $connect->openConnection();
+                                // $connect = new Connection;
+                                // $conn = $connect->openConnection();
 
                                     $query = "Select fetchercode from fetcher";
-                                    $res = $conn->prepare($query);
+                                    $res = $link_id->prepare($query);
                                     $res->execute();
                                     if($res->rowCount()){
                                         while($row = $res->fetch(PDO::FETCH_ASSOC)){
@@ -58,7 +58,7 @@
                                         }
                                     }
 
-                                $connect->closeConnection();
+                                // $connect->closeConnection();
                             ?>
                             </select>
                         
@@ -77,13 +77,13 @@
                             <select class="form-control comboBoxFetcherCodeTo" id="comboBoxFetcherCodeTo">
                             <!-- <option value="0"> -- Select student code -- </option> -->
                             <?php
-                                require_once("../connection.php");
+                                require_once("../config.db.php");
 
-                                $connect = new Connection;
-                                $conn = $connect->openConnection();
+                                // $connect = new Connection;
+                                // $conn = $connect->openConnection();
 
                                     $query = "Select fetchercode from fetcher";
-                                    $res = $conn->prepare($query);
+                                    $res = $link_id->prepare($query);
                                     $res->execute();
                                     if($res->rowCount()){
                                         while($row = $res->fetch(PDO::FETCH_ASSOC)){
@@ -94,7 +94,7 @@
                                         }
                                     }
 
-                                $connect->closeConnection();
+                                // $connect->closeConnection();
                             ?>
                             </select>
                         

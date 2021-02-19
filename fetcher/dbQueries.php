@@ -1,47 +1,47 @@
 <?php
 
     session_start();
-    
-    // $connect = new Connection();
-    // $conn = $connect->openConnection();
 
-
-    // $connect->closeConnection();
-
-    include_once('../assets/ezpdfclass/class/class.ezpdf.php');
+  
+    include('../assets/ezpdfclass/class/class.ezpdf.php');
     require_once('../connection.php');
+    include('../assets/lstvfunctions/lx.pdodb.php');
+    include('../config.db.php');
 
     if(isset($_POST['loadStudent'])){
 
-        $response = array();
-        $connect = new Connection();
-        $conn = $connect->openConnection();
+        $xresponse = array();
+        // $connect = new Connection();
+        // $conn = $connect->openConnection();
 
-        $dateNow =  date('Y');
+        $xdateNow =  date('Y');
 
-        $query = "Select max(studentcode) as studentcode from studentfile";
-        $res = $conn->prepare($query);
-        $res->execute();
+
+        $xquery = "Select max(studentcode) as studentcode from studentfile";
+        $xres = $link_id->prepare($xquery);
+        $xres->execute();
 
         
-        $row = $res->fetch(PDO::FETCH_ASSOC);
+        // $row = $res->fetch(PDO::FETCH_ASSOC);
+
+        $xrs = $xres->fetch();
        
-        if($row['studentcode'] != null){
+        if($xrs['studentcode'] != null){
 
 
-            $resPlus1 = substr($row['studentcode'],6,4);
-            $curr = $resPlus1 + 1;
+            $xresPlus1 = substr($xrs['studentcode'],6,4);
+            $xcurr = $xresPlus1 + 1;
 
-            $response['studentcode'] = $curr;
+            $xresponse['studentcode'] = $xcurr;
 
         }else{
             
-            $response['studentcode'] = "1001";
+            $xresponse['studentcode'] = "1001";
         }
 
-        echo json_encode($response);
+        echo json_encode($xresponse);
         
-        $connect->closeConnection();
+        // $connect->closeConnection();
 
     }
 
@@ -50,18 +50,20 @@
 
         $response = array();
 
-        $connect = new Connection();
-        $conn = $connect->openConnection();
+        // $connect = new Connection();
+        // $conn = $connect->openConnection();
 
         $studentCode = $_POST['studentCode'];
         $studentName = $_POST['studentName'];
 
         $yearNow = date('Y');
+        
+        $xarr_students = array();
 
         // check if student name already exists in the database
 
         $queryCheck = "Select * from studentfile where fullname ='$studentName'";
-        $result = $conn->prepare($queryCheck);
+        $result = $link_id->prepare($queryCheck);
         $result->execute();
 
         $row = $result->fetch(PDO::FETCH_ASSOC);
@@ -79,19 +81,21 @@
             // Check if the user changes the studentCode 
     
             $query = "Select * from studentfile order by studentcode desc limit 1";
-            $res = $conn->prepare($query);
+            $res = $link_id->prepare($query);
             $res->execute();
     
             $row = $res->fetch(PDO::FETCH_ASSOC);
     
             if($row['studentcode'] == null){
-    
+
                 // Create new studentCode recordid etc
                 // this is for first time records
+
+                $xarr_students['studentcode'] = $defaultStudentCode;
+                $xarr_students['recid'] = 1;
+                $xarr_students['fullname'] = $studentName;
     
-                $query = "Insert into studentfile (studentcode,recid,fullname) values ('$defaultStudentCode' ,1,'$studentName')";
-                $res = $conn->prepare($query);
-                $res->execute();
+                PDO_InsertRecord($linkid,'studentfile',$xarr_students);           
     
                 $response['status'] = 'Ok';
                 $response['message'] = 'Successfully inserted data';
@@ -104,19 +108,23 @@
                 // Check if studentCode exists in the database
     
                 $query = "Select * from studentfile where studentcode='$studentCode'";
-                $res2 = $conn->prepare($query);
+                $res2 = $link_id->prepare($query);
                 $res2->execute();
     
                 $row2 = $res2->fetch(PDO::FETCH_ASSOC);
     
     
                 if($row2['studentcode'] == null ){
-    
-                    // No file exists
-    
-                    $query = "Insert into studentfile (studentcode,recid,fullname) values ('$studentCode',$newRecordId,'$studentName')";
-                    $res3 = $conn->prepare($query);
-                    $res3->execute();
+
+                    $xarr_students['studentcode'] = $studentCode;
+                    $xarr_students['recid'] = $newRecordId;
+                    $xarr_students['fullname'] = $studentName;
+
+                    PDO_InsertRecord($link_id,'studentfile',$xarr_students);
+
+                    // $query = "Insert into studentfile (studentcode,recid,fullname) values ('$studentCode',$newRecordId,'$studentName')";
+                    // $res3 = $link_id->prepare($xquery);
+                    // $res3->execute();
     
                     $response['status'] = 'Ok';
                     $response['message'] = 'File inserted!';
@@ -136,7 +144,7 @@
         echo json_encode($response);
 
 
-        $connect->closeConnection();
+        // $connect->closeConnection();
 
     }
 
@@ -144,13 +152,13 @@
 
         $response = array();
 
-        $connect = new Connection;
-        $conn = $connect->openConnection();
+        // $connect = new Connection;
+        // $conn = $connect->openConnection();
 
         $studentCode = $_POST['studentCode'];
 
         $query = "Select fullname from studentfile where studentcode ='$studentCode'";
-        $res = $conn->prepare($query);
+        $res = $link_id->prepare($query);
         $res->execute();
 
         $row = $res->fetch(PDO::FETCH_ASSOC);
@@ -158,7 +166,7 @@
 
         echo json_encode($response);
 
-        $connect->closeConnection();
+        // $connect->closeConnection();
 
     }
 
@@ -167,11 +175,11 @@
 
         $response = array();
 
-        $connect = new Connection;
-        $conn = $connect->openConnection();
+        // $connect = new Connection;
+        // $conn = $connect->openConnection();
 
         $query = "Select studentcode from studentfile";
-        $res = $conn->prepare($query);
+        $res = $link_id->prepare($query);
         $res->execute();
 
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
@@ -182,7 +190,7 @@
 
         echo json_encode($response);
 
-        $connect->closeConnection();
+        // $connect->closeConnection();
 
 
     }
@@ -191,51 +199,69 @@
 
         $response = array();
 
-        $connect = new Connection;
-
-        $conn = $connect->openConnection();
-
+        // $connect = new Connection;
+        // $conn = $connect->openConnection();
 
         // Inputs
 
         $studentCodes = $_POST['studentCodes'];
         $studentRelationships = $_POST['studentRelationships'];
-
-
         $txtFetcherCode = $_POST['txtFetcherCode'];
         $txtFetcherName = $_POST['txtFetcherName'];
         $txtFetcherContact = $_POST['txtFetcherContact'];
         $dateFetcher = $_POST['dateFetcher'];
         $fetcherActive = $_POST['fetcherActive'];
 
-
         // Check if exists fetchercode
 
         $query = "Select count(fetchercode) from fetcher where fetchercode ='$txtFetcherCode'";
-        $res = $conn->prepare($query);
+        $res = $link_id->prepare($query);
         $res->execute();
 
         $count = $res->fetchColumn();
 
         if($count == 0){
-            // Insert first to fetchercode 
-            $ins = "Insert into fetcher(fetchercode,fetchername) values ('$txtFetcherCode','$txtFetcherName')";
-            $res2 = $conn->prepare($ins);
-            $res2->execute();
 
+            // Insert old
+            // $ins = "Insert into fetcher(fetchercode,fetchername) values ('$txtFetcherCode','$txtFetcherName')";
+
+
+            // New insert
+            $xarr_fetcher = array();
+            $xarr_fetcher['fetchercode'] = $txtFetcherCode;
+            $xarr_fetcher['fetchername'] = $txtFetcherName;
+
+            PDO_InsertRecord($link_id,'fetcher',$xarr_fetcher);
+
+            // End new insert
+        
+            // $res2 = $conn->prepare($ins);
+            // $res2->execute();
             // then insert multiple data in student fetcher
 
             $count = count($studentCodes);
 
             for($i = 1; $i < $count; $i++){
-                $query = "Insert into studentfetcher(fetchercode,studentcode,relationship,contactnumber,dateRegistered,isActive) values ('$txtFetcherCode','$studentCodes[$i]','$studentRelationships[$i]','$txtFetcherContact','$dateFetcher','$fetcherActive')";
-                $res3 = $conn->prepare($query);
-                $res3->execute();
+
+                $xarr_student_fetcher = array();
+                $xarr_student_fetcher['fetchercode'] = $txtFetcherCode;
+                $xarr_student_fetcher['studentcode'] = $studentCodes[$i];
+                $xarr_student_fetcher['relationship'] = $studentRelationships[$i];
+                $xarr_student_fetcher['contactnumber'] = $txtFetcherContact;
+                $xarr_student_fetcher['dateRegistered'] = $dateFetcher;
+                $xarr_student_fetcher['isActive'] = $fetcherActive;  
+
+                PDO_InsertRecord($link_id,'studentfetcher',$xarr_student_fetcher);
+
+                // Old insert
+                // "Insert into studentfetcher(fetchercode,studentcode,relationship,contactnumber,dateRegistered,isActive) values 
+                // ('$txtFetcherCode','$studentCodes[$i]','$studentRelationships[$i]','$txtFetcherContact','$dateFetcher','$fetcherActive')"
+                // $res3 = $conn->prepare($query);
+                // $res3->execute();
             }
 
             $response['status'] = 'Ok';
             $response['message'] = 'Data inserted!';
-            
 
 
         }else{
@@ -247,14 +273,14 @@
 
         echo json_encode($response);
 
-        $connect->closeConnection();
+        // $connect->closeConnection();
 
     }
 
     if(isset($_POST['btnPrint'])){
 
-        $connect = new Connection;
-        $conn = $connect->openConnection();
+        // $connect = new Connection;
+        // $conn = $connect->openConnection();
 
         $comboBoxFetcherCodeFrom = $_POST['comboBoxFetcherCodeFrom'];
         $comboBoxFetcherCodeTo = $_POST['comboBoxFetcherCodeTo'];
@@ -264,8 +290,6 @@
         $fetcherInactive = $_POST['fetcherInactive'];
         $detailedOrsummarized = $_POST['detailedSummarized'];
         
-
-
         $fetcherGetInactiveActive;
 
         if($fetcherActive == 1 && $fetcherInactive == 1){
@@ -287,13 +311,13 @@
         // $_SESSION['fetcherTo'] = $comboBoxFetcherCodeTo;
         // $_SESSION['dateFrom'] = $dateFetcherFrom;
         // $_SESSION['dateTo'] = $dateFetcherTo;
+        // $connect->closeConnection();
 
 
-        $connect->closeConnection();
         if($detailedOrsummarized == 'detailed'){
-            printDetailed($comboBoxFetcherCodeFrom, $comboBoxFetcherCodeTo , $dateFetcherFrom, $dateFetcherTo,$fetcherGetInactiveActive);
+            printDetailed($link_id, $comboBoxFetcherCodeFrom, $comboBoxFetcherCodeTo , $dateFetcherFrom, $dateFetcherTo,$fetcherGetInactiveActive);
         }else{
-            printSummarized($comboBoxFetcherCodeFrom, $comboBoxFetcherCodeTo , $dateFetcherFrom, $dateFetcherTo,$fetcherGetInactiveActive);
+            printSummarized($link_id, $comboBoxFetcherCodeFrom, $comboBoxFetcherCodeTo , $dateFetcherFrom, $dateFetcherTo,$fetcherGetInactiveActive);
         }
 
     }
@@ -303,10 +327,11 @@
     // Additional printing rospdf
     if(isset($_POST['printStudents'])){
 
-        $connect = new Connection;
-        $conn = $connect->openConnection();
+        // $connect = new Connection;
+        // $conn = $connect->openConnection();
 
         $pdf = new Cezpdf('Letter');
+        // $pdf->openObject();
         $pdf->saveState();
 
         $xfsize = 8;
@@ -340,7 +365,7 @@
         $xtop -= 10;
 
         $query = "Select * from studentfile";
-        $res = $conn->prepare($query);
+        $res = $link_id->prepare($query);
         $res->execute();
         
         while($row = $res->fetch(PDO::FETCH_ASSOC)){
@@ -375,18 +400,18 @@
         }
         
         $pdf->ezStream();
-        $connect->closeConnection();
+        // $pdf->closeObject();
+        // $connect->closeConnection();
     }
 
    
 
 
-    function printDetailed($ffrom, $fto, $dfrom, $dto, $activeInactive){
+    function printDetailed($link_id, $ffrom, $fto, $dfrom, $dto, $activeInactive){
 
 
-        $connect = new Connection;
-        $conn = $connect->openConnection();
-
+        // $connect = new Connection;
+        // $conn = $connect->openConnection();
         
         $pdf = new Cezpdf('Letter');
         $pdf->saveState();
@@ -445,7 +470,7 @@
         $pdf->line($x1,$xtop,$x2,$xtop);
         $xtop -= 10;
 
-        $res = $conn->prepare($query);
+        $res = $link_id->prepare($query);
         $res->execute();
         
         $totalFetcherCount = 0;
@@ -504,7 +529,7 @@
             $xtop -=15;
 
             $query2 = "Select studentfile.studentcode as studentcode, studentfile.fullname as fullname, studentfetcher.relationship as relationship, studentfetcher.contactnumber as contactnumber,studentfetcher.dateRegistered as datereg from studentfile inner join studentfetcher on studentfile.studentcode = studentfetcher.studentcode where studentfetcher.fetchercode ='$fetchersCode'";
-            $res2 = $conn->prepare($query2);
+            $res2 = $link_id->prepare($query2);
             $res2->execute();
 
             $fetcherStudentCount = 0;
@@ -544,14 +569,12 @@
         $pdf->ezStream();
 
 
-        $connect->closeConnection();
-
     }
 
-    function printSummarized($ffrom, $fto, $dfrom, $dto, $activeInactive){
+    function printSummarized($link_id, $ffrom, $fto, $dfrom, $dto, $activeInactive){
         
-        $connect = new Connection;
-        $conn = $connect->openConnection();
+        // $connect = new Connection;
+        // $conn = $connect->openConnection();
         $pdf = new Cezpdf('Letter');
         
 
@@ -565,7 +588,6 @@
 
         $dateToday = date('F d, Y');
 
-        
 
         $pdf->ezPlaceData(25,$xtop , "Summarized Fetcher File Report",20 ,'left');
         $xtop -=20;
@@ -615,7 +637,7 @@
 
         $xtop -= 10;
 
-        $res = $conn->prepare($query);
+        $res = $link_id->prepare($query);
         $res->execute();
        
         $pdf->ezStartPageNumbers(590 , 40, 8, 'left',$pattern = "{PAGENUM} / {TOTALPAGENUM}", $num = 1);

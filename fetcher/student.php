@@ -62,42 +62,31 @@
 
                        <br>
 
-                        <table class="table" id="tblStudents"> 
+                        <table class="table table-striped table-bordered" id="tblStudents"> 
                             <thead>
                                 <tr>
                                     <th scope="col">Record ID</th>
                                     <th scope="col">Student Code</th>
                                     <th scope="col">Student Full Name</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
 
-                                <?php
 
-                                    require_once('../connection.php');
-                                    $connect = new Connection();
-                                    $conn = $connect->openConnection();
 
-                                    $query = "Select * from studentfile";
-                                    $res = $conn->prepare($query);
-                                    $res->execute();
+                            <tbody></tbody>
 
-                                    while($row = $res->fetch(PDO::FETCH_ASSOC) ){
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $row['recid']; ?> </td>
-                                                <td><?php echo $row['studentcode']; ?></td>
-                                                <td><?php echo $row['fullname']; ?></td>
-
-                                            </tr>
-                                <?php    }
-                                    $connect->closeConnection();
-                                ?>
-
-                            <tbody>
-
-                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col">Record ID</th>
+                                    <th scope="col">Student Code</th>
+                                    <th scope="col">Student Full Name</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </tfoot>
                         </table>
-<br>
+                        <br>
+                        
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-3">
@@ -105,10 +94,6 @@
                                 </div>
                             </div>
                         </div>
-
-<br>
-
-                     
 
 
                     </div>
@@ -122,10 +107,14 @@
     </div>
 </body>
 
+
 <?php
 
     require_once "../includes/scripts.php";
 
 ?>
+
+<script src="studentDataTable.js"></script>
+
 
 </html>
