@@ -94,6 +94,7 @@
                 $xarr_students['studentcode'] = $defaultStudentCode;
                 $xarr_students['recid'] = 1;
                 $xarr_students['fullname'] = $studentName;
+                $xarr_students['isactive'] = 1;
     
                 PDO_InsertRecord($linkid,'studentfile',$xarr_students);           
     
@@ -119,6 +120,7 @@
                     $xarr_students['studentcode'] = $studentCode;
                     $xarr_students['recid'] = $newRecordId;
                     $xarr_students['fullname'] = $studentName;
+                    $xarr_students['isactive'] = 1;
 
                     PDO_InsertRecord($link_id,'studentfile',$xarr_students);
 

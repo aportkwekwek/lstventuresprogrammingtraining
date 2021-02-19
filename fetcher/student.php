@@ -62,13 +62,13 @@
 
                        <br>
 
-                        <table class="table table-striped table-bordered" id="tblStudents"> 
+                        <table class="table display" id="tblStudents"> 
                             <thead>
                                 <tr>
-                                    <th scope="col">Record ID</th>
-                                    <th scope="col">Student Code</th>
-                                    <th scope="col">Student Full Name</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col" style="width: 12%;">Record ID</th>
+                                    <th scope="col" style="width: 23%;">Student Code</th>
+                                    <th scope="col" style="width: 52%;">Student Full Name</th>
+                                    <th scope="col" style="width: 13%;">Action</th>
                                 </tr>
                             </thead>
 

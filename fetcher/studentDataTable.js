@@ -57,7 +57,7 @@ $(document).ready(function(){
                             let timeInterval;
                             Swal.fire({
                                 title: data.status,
-                                html: 'Closing in <b></b> <p>'+data.message + '</p>',
+                                html: 'Closing in <b></b> ms <p>'+data.message + '</p>',
                                 timer: 3000,
                                 icon:'error',
                                 timerProgressBar: true,
@@ -201,10 +201,10 @@ $(document).ready(function(){
                 $('#tblStudents tbody').append("<tr>" +
                     // "<td class='recordid'>" + "<input type=''text' class='recordidclass' value='" +data[i].recid + "' disabled></td>" +
                 
-                    "<td class='recordid'>" + +data[i].recid + "</td>" +
+                    "<td class='recordid' style='text-align:center;'>" + +data[i].recid + "</td>" +
                     "<td class='studentcode'>" + data[i].studentcode + "</td>" +
                     "<td class='fullname'>" + data[i].fullname + "</td>" +
-                    "<td>" + "<span data-toggle='tooltip' data-placement='top' title='Edit' class='btn btn-info btnEditStudent'><i class='fa fa-pencil'></i></span>&emsp;" +
+                    "<td style='text-align:center;'>" + "<span data-toggle='tooltip' data-placement='top' title='Edit' class='btn btn-info btnEditStudent'><i class='fa fa-pencil'></i></span> " +
                     "<span data-toggle='tooltip' data-placement='top' title='Delete' class='btn btn-danger btnDeleteStudent'><i class='fa fa-trash'></i></span>" + "</td>" +
                     
                 "</tr>");
