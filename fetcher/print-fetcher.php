@@ -124,19 +124,45 @@
                         
                         <!-- End Registered Date -->
 
+                        <!-- <div class="form-check">
+                            <label class="checkbox path">
+                                <input class="form-check-input" name="fetcherActive" type="checkbox" id="fetcherActive">
+                                <svg viewBox="0 0 21 21">
+                                    <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+                                </svg>
+                            </label>
+                            <label class="form-check-label" for="fetcherActive" style="margin-left:10px; position:absolute;">
+                                Is Active
+                            </label>
+                            
+                        </div> -->
+
                         <div class="row">
                             <div class="col-md-5 text-muted">
                             <br>
                                 <div class="form-check">
-                                    <input class="form-check-input" name="fetcherActive" type="checkbox" id="fetcherActive">
-                                    <label class="form-check-label" for="fetcherActive">
+                                    <label for="" class="checkbox path">
+                                        <input class="form-check-input" name="fetcherActive" type="checkbox" id="fetcherActive">
+                                        <svg viewBox="0 0 21 21">
+                                            <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+                                        </svg>
+                                    </label>
+
+                                    <label class="form-check-label" for="fetcherActive" style="margin-left:10px; position:absolute;">
                                         Display Active Fetcher Only
                                     </label>
                                 </div>
+
+
                                     <br>
                                 <div class="form-check">
-                                    <input class="form-check-input" name="fetcherInactive" type="checkbox" id="fetcherInactive">
-                                    <label class="form-check-label" for="fetcherInactive">
+                                    <label for="" class="checkbox path">
+                                        <input class="form-check-input" name="fetcherInactive" type="checkbox" id="fetcherInactive">
+                                            <svg viewBox="0 0 21 21">
+                                                <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+                                            </svg>
+                                    </label>
+                                    <label class="form-check-label" for="fetcherInactive" style="margin-left:10px; position:absolute;">
                                         Display Inactive Fetcher Only
                                     </label>
                                 </div>
@@ -149,8 +175,13 @@
 
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="detailedSummarized" value="detailed" checked>
-                                                <label class="form-check-label" for="detailedSummarized">
+                                                <label for="" class="checkbox path">
+                                                <input class="form-check-input" type="radio" name="detailedSummarized" value="detailed" id="chk_detailed" checked>
+                                                    <svg viewBox="0 0 21 21">
+                                                        <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+                                                    </svg>
+                                                </label>
+                                                <label class="form-check-label" for="chk_detailed" style="margin-left:10px; position:absolute;">
                                                     Detailed
                                                 </label>
                                             </div>
@@ -158,8 +189,13 @@
 
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="detailedSummarized" value="summarized">
-                                                <label class="form-check-label" for="detailedSummarized">
+                                                <label for="" class="checkbox path">
+                                                <input class="form-check-input" type="radio" name="detailedSummarized" value="summarized" id="chk_summarized">
+                                                <svg viewBox="0 0 21 21">
+                                                        <path d="M5,10.75 L8.5,14.25 L19.4,2.3 C18.8333333,1.43333333 18.0333333,1 17,1 L4,1 C2.35,1 1,2.35 1,4 L1,17 C1,18.65 2.35,20 4,20 L17,20 C18.65,20 20,18.65 20,17 L20,7.99769186"></path>
+                                                    </svg>
+                                                </label>
+                                                <label class="form-check-label" for="chk_summarized" style="margin-left:10px; position:absolute;">
                                                     Summarized
                                                 </label>
                                             </div>
