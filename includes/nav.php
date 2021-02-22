@@ -1,4 +1,4 @@
-<nav id="sidebarMenu" >
+<nav id="sidebarMenu" class="sticky-top">
     <div class="position-sticky pt-3">
 
         <a href="../index.php" style="text-decoration:none;" class="text-success sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1">
@@ -13,17 +13,17 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="../looping-reference/forloop.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;For 
+                <i class="fa fa-repeat"></i>&emsp;For 
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../looping-reference/whileloop.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;While
+                <i class="fa fa-repeat"></i>&emsp;While
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../looping-reference/foreachloop.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;For Each
+                <i class="fa fa-repeat"></i>&emsp;For Each
                 </a>
             </li>
         </ul>
@@ -36,12 +36,12 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="../condition-reference/if-else.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;If Else 
+                <i class="fa fa-legal"></i>&emsp;If Else 
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../condition-reference/switch.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;Switch
+                <i class="fa fa-legal"></i>&emsp;Switch
                 </a>
             </li>
             
@@ -55,12 +55,12 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="../string-reference/string-replace.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;String Replace
+                <i class="fa fa-angle-double-right"></i>&emsp;String Replace
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../string-reference/string-concat.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;String Concat
+                <i class="fa fa-angle-double-right"></i>&emsp;String Concat
                 </a>
             </li>
             
@@ -74,7 +74,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="../linq/person-data.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;Person Data
+                <i class="fa fa-book"></i>&emsp;Person Data
                 </a>
             </li>
             
@@ -88,19 +88,19 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="../fetcher/student.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;Student
+                <i class="fa fa-link"></i>&emsp;Student
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="../fetcher/fetcher.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;Fetcher 
+                <i class="fa fa-link"></i>&emsp;Fetcher 
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="../fetcher/print-fetcher.php">&emsp;
-                <i class="fa fa-child"></i>&emsp;Print Data 
+                <i class="fa fa-link"></i>&emsp;Print Data 
                 </a>
             </li>
             

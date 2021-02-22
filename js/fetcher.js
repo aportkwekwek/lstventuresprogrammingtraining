@@ -449,5 +449,36 @@ $(document).ready(function(){
 
     });
 
+    // xss protection
+
+    $('#txtFetcherName').on('keypress',function(e){
+
+        var pattern = /^[a-zA-Z0-9- ]*$/;
+        
+        var userinput = $(this).val();
+
+        if(!pattern.test(userinput)){
+            toastr.error('Special Characters not allowed!');
+            return false;
+        }   
+
+    });
+
+    $.ajax({
+        type:'post',
+        url:'../test.php',
+        dataType:'json',
+        data:{
+            test:1
+        },
+        success:function(data){
+            
+            console.log(data);
+        },
+        error:function(err){
+            console.log(err);
+        }
+    });
+
 
 });

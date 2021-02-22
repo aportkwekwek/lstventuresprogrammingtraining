@@ -180,7 +180,6 @@
                         
                     <button class="btn btn-success" id="generateNumberLoop">Click to generate</button>
 
-
                     </div>
 
                     <div class="container" style="margin-top:10px;">
@@ -210,5 +209,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://use.fontawesome.com/70a44c349b.js"></script>
 <script src="js/app.js"></script>
+
+<!-- uac.lazada.com -->
+<!-- open.shopee.com -->
+
 
 </html>

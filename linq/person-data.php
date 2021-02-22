@@ -235,4 +235,14 @@
     require_once "../includes/scripts.php";
 
 ?>
+
+<!-- <script>
+
+    $(document).ready(function(){
+
+        $('#tblPersonsData').DataTable();
+
+    });
+
+</script> -->
 </html>
