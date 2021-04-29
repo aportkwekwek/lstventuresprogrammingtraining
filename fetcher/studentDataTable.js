@@ -201,11 +201,11 @@ $(document).ready(function(){
                 $('#tblStudents tbody').append("<tr>" +
                     // "<td class='recordid'>" + "<input type=''text' class='recordidclass' value='" +data[i].recid + "' disabled></td>" +
                 
-                    "<td class='recordid' style='text-align:center;'>" + +data[i].recid + "</td>" +
-                    "<td class='studentcode'>" + data[i].studentcode + "</td>" +
-                    "<td class='fullname'>" + data[i].fullname + "</td>" +
-                    "<td style='text-align:center;'>" + "<span data-toggle='tooltip' data-placement='top' title='Edit' class='btn btn-info btnEditStudent'><i class='fa fa-pencil'></i></span> " +
-                    "<span data-toggle='tooltip' data-placement='top' title='Delete' class='btn btn-danger btnDeleteStudent'><i class='fa fa-trash'></i></span>" + "</td>" +
+                    "<td class='recordid' style='text-align:center; border-color:#28a745;'>" + +data[i].recid + "</td>" +
+                    "<td class='studentcode' style='border-color:#28a745;'>" + data[i].studentcode + "</td>" +
+                    "<td class='fullname' style='border-color:#28a745;'>" + data[i].fullname + "</td>" +
+                    "<td style='text-align:center; border-color:#28a745' >" + "<div><span data-toggle='tooltip' data-placement='top' title='Edit' class='btn btn-info btnEditStudent'><i class='fa fa-pencil'></i></span> " +
+                    "<span data-toggle='tooltip' data-placement='top' title='Delete' class='btn btn-danger btnDeleteStudent'><i class='fa fa-trash'></i></span>" + "</div></td>" +
                     
                 "</tr>");
             }

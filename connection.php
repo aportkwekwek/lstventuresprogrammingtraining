@@ -4,7 +4,7 @@
 
         private $server = "mysql:host=localhost;dbname=lstvprogrammingtraining";
         private $user = "root";
-        private $pass = "";
+        private $pass = "sql";
 
 
         protected $conn;

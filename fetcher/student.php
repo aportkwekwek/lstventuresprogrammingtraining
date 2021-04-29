@@ -62,7 +62,7 @@
 
                        <br>
 
-                        <table class="table hover" id="tblStudents" width="100%"> 
+                        <table class="table hover table-bordered table-responsive border-success" id="tblStudents"> 
                             <thead>
                                 <tr>
                                     <th scope="col" style="width: 12%;">Record ID</th>

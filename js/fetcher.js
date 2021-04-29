@@ -464,21 +464,21 @@ $(document).ready(function(){
 
     });
 
-    $.ajax({
-        type:'post',
-        url:'../test.php',
-        dataType:'json',
-        data:{
-            test:1
-        },
-        success:function(data){
+    // $.ajax({
+    //     type:'post',
+    //     url:'../test.php',
+    //     dataType:'json',
+    //     data:{
+    //         test:1
+    //     },
+    //     success:function(data){
             
-            console.log(data);
-        },
-        error:function(err){
-            console.log(err);
-        }
-    });
+    //         // console.log(data);
+    //     },
+    //     error:function(err){
+    //         console.log(err);
+    //     }
+    // });
 
 
 });

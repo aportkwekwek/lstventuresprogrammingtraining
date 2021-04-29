@@ -23,8 +23,6 @@ if(isset($_POST['load'])){
             $ctr  = $ctr + 1;
     }
 
-    // echo $xstudent_arr;
-
     echo json_encode($xstudent_arr);
 
    
